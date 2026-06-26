@@ -1,0 +1,880 @@
+/* ============================================
+   DARK THEME TEXT VISIBILITY FIX
+   Master override for ALL pages
+   ============================================ */
+
+/* ---- GLOBAL TEXT OVERRIDES ---- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fdf4ff !important;
+}
+
+p,
+span,
+label,
+li,
+td,
+th {
+  color: #e2d1f9;
+}
+
+/* ---- SOS PAGE ---- */
+.sos-container {
+  background: transparent;
+}
+
+.sos-container h1,
+.sos-container h2,
+.sos-container h3 {
+  color: #ff4d6d !important;
+  text-shadow: 0 0 20px rgba(255, 77, 109, 0.3);
+}
+
+.sos-container p,
+.sos-container span {
+  color: #fdf4ff;
+}
+
+.sos-btn {
+  background: linear-gradient(135deg, #ff2d55, #ff6b81) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 15px 40px rgba(255, 45, 85, 0.4) !important;
+}
+
+.sos-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 50px rgba(255, 45, 85, 0.6) !important;
+}
+
+.sos-status,
+.sos-info,
+.sos-description {
+  color: #e2d1f9 !important;
+}
+
+.countdown-text {
+  color: #ff6b81 !important;
+  font-weight: 700;
+}
+
+/* ---- AI ASSISTANT PAGE ---- */
+.ai-assistant-container {
+  background: transparent;
+}
+
+.ai-assistant-container h1,
+.ai-assistant-container h2 {
+  color: #c084fc !important;
+  text-shadow: 0 0 15px rgba(192, 132, 252, 0.3);
+}
+
+.ai-assistant-container p {
+  color: #e2d1f9;
+}
+
+.message-bubble {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #fdf4ff !important;
+  backdrop-filter: blur(10px);
+}
+
+.message-bubble.user {
+  background: linear-gradient(135deg, #a855f7, #ec4899) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.message-bubble.ai {
+  background: rgba(168, 85, 247, 0.12) !important;
+  border: 1px solid rgba(168, 85, 247, 0.25) !important;
+}
+
+.chat-input,
+.message-input {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #fdf4ff !important;
+}
+
+.chat-input::placeholder,
+.message-input::placeholder {
+  color: rgba(192, 132, 252, 0.85) !important;
+}
+
+.send-btn,
+.chat-send-btn {
+  background: linear-gradient(135deg, #a855f7, #ec4899) !important;
+  color: white !important;
+  border: none !important;
+}
+
+/* ---- ADVANCED SAFETY PAGE ---- */
+.advanced-safety-container {
+  background: transparent;
+}
+
+.advanced-safety-container h1,
+.advanced-safety-container h2,
+.advanced-safety-container h3 {
+  color: #c084fc !important;
+}
+
+.advanced-safety-container p,
+.advanced-safety-container span,
+.advanced-safety-container label {
+  color: #e2d1f9 !important;
+}
+
+.safety-card,
+.detection-card,
+.monitoring-card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(168, 85, 247, 0.2) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 20px !important;
+}
+
+.safety-card:hover,
+.detection-card:hover,
+.monitoring-card:hover {
+  background: rgba(236, 72, 153, 0.15) !important;
+  border-color: rgba(236, 72, 153, 0.5) !important;
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.25) !important;
+}
+
+.safety-card:hover h3,
+.detection-card:hover h3,
+.monitoring-card:hover h3 {
+  color: #ffb3d9 !important;
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+}
+
+.safety-card:hover p,
+.detection-card:hover p,
+.monitoring-card:hover p {
+  color: #fdf4ff !important;
+}
+
+/* ---- PROFILE PAGE ---- */
+.profile-container {
+  background: transparent;
+}
+
+.profile-container h1,
+.profile-container h2,
+.profile-container h3 {
+  color: #fdf4ff !important;
+}
+
+.profile-container p,
+.profile-container span {
+  color: #e2d1f9;
+}
+
+.profile-card,
+.profile-section,
+.settings-card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 20px !important;
+}
+
+.profile-avatar {
+  border: 3px solid rgba(168, 85, 247, 0.5) !important;
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.3) !important;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #ff2d55, #ff6b81) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 8px 24px rgba(255, 45, 85, 0.3) !important;
+}
+
+/* ---- LIVE LOCATION PAGE ---- */
+.location-container {
+  background: transparent;
+}
+
+.location-container h1,
+.location-container h2,
+.location-container h3 {
+  color: #fdf4ff !important;
+}
+
+.location-container p,
+.location-container span {
+  color: #e2d1f9;
+}
+
+.map-container {
+  border: 2px solid rgba(168, 85, 247, 0.3) !important;
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+
+.share-btn,
+.location-btn {
+  background: linear-gradient(135deg, #bf5af2, #da85ff) !important;
+  color: white !important;
+  border: none !important;
+}
+
+/* ---- EMERGENCY CONTACTS PAGE ---- */
+.emergency-contacts-container {
+  background: transparent;
+}
+
+.emergency-contacts-container h1,
+.emergency-contacts-container h2 {
+  color: #fdf4ff !important;
+}
+
+.emergency-contacts-container p,
+.emergency-contacts-container span {
+  color: #e2d1f9;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 18px !important;
+}
+
+.contact-card:hover {
+  background: rgba(236, 72, 153, 0.15) !important;
+  border-color: rgba(236, 72, 153, 0.5) !important;
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.2) !important;
+}
+
+.contact-name {
+  color: #fdf4ff !important;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-name {
+  color: #ffb3d9 !important;
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+}
+
+.contact-phone,
+.contact-role {
+  color: #c084fc !important;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-phone,
+.contact-card:hover .contact-role {
+  color: #fdf4ff !important;
+}
+
+.contact-avatar {
+  font-size: 2.2rem;
+}
+
+/* ---- SAFE ROUTE PAGE ---- */
+.safe-route-container {
+  background: transparent;
+}
+
+.safe-route-container h1,
+.safe-route-container h2,
+.safe-route-container h3 {
+  color: #fdf4ff !important;
+}
+
+.safe-route-container p,
+.safe-route-container span {
+  color: #e2d1f9;
+}
+
+.route-card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 18px !important;
+}
+
+.route-card:hover {
+  background: rgba(236, 72, 153, 0.15) !important;
+  border-color: rgba(236, 72, 153, 0.5) !important;
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.2) !important;
+}
+
+.route-card:hover h3 {
+  color: #ffb3d9 !important;
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+}
+
+.route-card:hover p,
+.route-card:hover span {
+  color: #fdf4ff !important;
+}
+
+/* ---- SEND ALERT PAGE ---- */
+.send-alert-container {
+  background: transparent;
+}
+
+.send-alert-container h1,
+.send-alert-container h2 {
+  color: #fdf4ff !important;
+}
+
+.send-alert-container p,
+.send-alert-container span {
+  color: #e2d1f9;
+}
+
+.alert-card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 18px !important;
+}
+
+.alert-btn,
+.send-alert-btn {
+  background: linear-gradient(135deg, #ff9f0a, #ffbf4d) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 8px 24px rgba(255, 159, 10, 0.3) !important;
+}
+
+/* ---- POLICE STATIONS PAGE ---- */
+.police-stations-container {
+  background: transparent;
+}
+
+.police-stations-container h1,
+.police-stations-container h2 {
+  color: #fdf4ff !important;
+}
+
+.police-stations-container p,
+.police-stations-container span {
+  color: #e2d1f9;
+}
+
+.station-card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 18px !important;
+}
+
+.station-card:hover {
+  background: rgba(236, 72, 153, 0.15) !important;
+  border-color: rgba(236, 72, 153, 0.5) !important;
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.2) !important;
+}
+
+.station-name {
+  color: #fdf4ff !important;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.station-card:hover .station-name {
+  color: #ffb3d9 !important;
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+}
+
+.station-distance,
+.station-rating {
+  color: #c084fc !important;
+  transition: all 0.3s ease;
+}
+
+.station-card:hover .station-distance,
+.station-card:hover .station-rating {
+  color: #fdf4ff !important;
+}
+
+.directions-btn {
+  background: linear-gradient(135deg, #0a84ff, #5ab0ff) !important;
+  color: white !important;
+  border: none !important;
+}
+
+/* ---- LOGIN & REGISTER PAGES ---- */
+.login-container,
+.register-container {
+  background: transparent;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container h1,
+.login-container h2,
+.register-container h1,
+.register-container h2 {
+  color: #fdf4ff !important;
+}
+
+.login-container p,
+.login-container span,
+.login-container label,
+.register-container p,
+.register-container span,
+.register-container label {
+  color: #e2d1f9 !important;
+}
+
+/* ---- WELCOME PAGE ---- */
+.welcome-container {
+  background: transparent;
+}
+
+.welcome-container h1 {
+  background: linear-gradient(135deg, #a855f7, #ec4899) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* ---- DASHBOARD SPECIFICS ---- */
+.dashboard-container {
+  background: transparent;
+}
+
+.dashboard-loading {
+  color: #c084fc !important;
+  background: transparent !important;
+}
+
+.header-subtitle {
+  color: #c084fc !important;
+}
+
+.section-title {
+  color: #fdf4ff !important;
+}
+
+.notification-btn {
+  background: rgba(168, 85, 247, 0.15) !important;
+  color: #c084fc !important;
+  border: 1px solid rgba(168, 85, 247, 0.25) !important;
+}
+
+.notification-btn:hover {
+  background: rgba(168, 85, 247, 0.25) !important;
+}
+
+.notification-badge {
+  background: linear-gradient(135deg, #ff2d55, #ff6b81) !important;
+}
+
+.status-content h3 {
+  color: white !important;
+}
+
+.status-text {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.status-active {
+  color: #6ee78e !important;
+  background: rgba(48, 209, 88, 0.2) !important;
+}
+
+.detail-label {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 500;
+}
+
+.detail-value {
+  color: white !important;
+}
+
+/* ---- FEATURE CARD COMPONENT ---- */
+.feature-card-component,
+[class*="feature-card"] {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 20px !important;
+  transition: all 0.3s ease !important;
+}
+
+[class*="feature-card"]:hover {
+  background: rgba(236, 72, 153, 0.15) !important;
+  border-color: rgba(236, 72, 153, 0.5) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.25) !important;
+}
+
+[class*="feature-card"] h3,
+[class*="feature-card"] .card-title {
+  color: #fdf4ff !important;
+  transition: all 0.3s ease;
+}
+
+[class*="feature-card"]:hover h3,
+[class*="feature-card"]:hover .card-title {
+  color: #ffb3d9 !important;
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+  font-size: inherit;
+}
+
+[class*="feature-card"] p,
+[class*="feature-card"] .card-description {
+  color: #c084fc !important;
+  transition: all 0.3s ease;
+}
+
+[class*="feature-card"]:hover p,
+[class*="feature-card"]:hover .card-description {
+  color: #fdf4ff !important;
+}
+
+/* ---- VOICE SOS CARD ---- */
+.voice-sos-card {
+  background: rgba(255, 45, 85, 0.08) !important;
+  border: 1px solid rgba(255, 45, 85, 0.25) !important;
+  backdrop-filter: blur(10px);
+}
+
+.voice-details h3 {
+  color: #fdf4ff !important;
+}
+
+.voice-status {
+  color: #ff6b81 !important;
+}
+
+.voice-instruction {
+  color: #e2d1f9 !important;
+}
+
+.voice-icon {
+  background: rgba(255, 45, 85, 0.15) !important;
+  color: #ff6b81 !important;
+}
+
+.voice-toggle-btn {
+  background: linear-gradient(135deg, #ff2d55, #ff6b81) !important;
+}
+
+.voice-toggle-btn.active {
+  background: linear-gradient(135deg, #30d158, #6ee78e) !important;
+}
+
+/* ---- MODALS ---- */
+.fake-call-content {
+  background: rgba(30, 20, 50, 0.95) !important;
+  border: 1px solid rgba(168, 85, 247, 0.3) !important;
+  backdrop-filter: blur(20px);
+}
+
+.fake-call-content h3 {
+  color: #fdf4ff !important;
+}
+
+.fake-call-content p {
+  color: #e2d1f9 !important;
+}
+
+/* ---- GENERIC CARD BACKGROUNDS ---- */
+.card,
+.info-card,
+.detail-card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* ---- BUTTONS GENERAL UPGRADE ---- */
+.btn-primary,
+.primary-btn,
+.submit-btn {
+  background: linear-gradient(135deg, #a855f7, #ec4899) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.3) !important;
+}
+
+.btn-secondary,
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(168, 85, 247, 0.3) !important;
+  color: #c084fc !important;
+}
+
+/* ---- ANIMATIONS ---- */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(236, 72, 153, 0.4);
+  }
+}
+
+/* Apply entrance animation to all page containers */
+.dashboard-container,
+.sos-container,
+.ai-assistant-container,
+.advanced-safety-container,
+.profile-container,
+.location-container,
+.emergency-contacts-container,
+.safe-route-container,
+.send-alert-container,
+.police-stations-container {
+  animation: slideInDown 0.5s ease-out;
+}
+
+/* ---- CONTRAST RESCUE FOR LIGHT PANELS ---- */
+.safety-header,
+.alerts-section,
+.instructions-section,
+.settings-section,
+.account-section,
+.settings-list,
+.setting-item,
+.account-info,
+.about-section,
+.alert-history,
+.history-item,
+.station-card,
+.live-info,
+.location-card,
+.share-card,
+.map-card,
+.login-form,
+.register-form,
+.welcome-card,
+.stats-card,
+.activity-card {
+  color: #102a43 !important;
+}
+
+.safety-header h1,
+.safety-header h2,
+.safety-header h3,
+.alerts-section h1,
+.alerts-section h2,
+.alerts-section h3,
+.instructions-section h1,
+.instructions-section h2,
+.instructions-section h3,
+.instructions-section h4,
+.settings-section h1,
+.settings-section h2,
+.settings-section h3,
+.account-section h1,
+.account-section h2,
+.account-section h3,
+.setting-item span,
+.account-info p,
+.about-section p,
+.alert-history h1,
+.alert-history h2,
+.history-message,
+.station-card h1,
+.station-card h2,
+.station-card h3,
+.live-info h1,
+.live-info h2,
+.live-info h3,
+.location-card h1,
+.location-card h2,
+.location-card h3,
+.share-card h1,
+.share-card h2,
+.share-card h3,
+.map-card h1,
+.map-card h2,
+.map-card h3,
+.login-form h1,
+.login-form h2,
+.register-form h1,
+.register-form h2,
+.welcome-card h1,
+.welcome-card h2,
+.stats-card h1,
+.stats-card h2,
+.stats-card h3,
+.activity-card h1,
+.activity-card h2,
+.activity-card h3 {
+  color: #102a43 !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-shadow: none !important;
+}
+
+.safety-header p,
+.alerts-section p,
+.alerts-section span,
+.instructions-section p,
+.instructions-section span,
+.settings-section p,
+.settings-section span,
+.account-section p,
+.account-section span,
+.alert-history p,
+.alert-history span,
+.station-card p,
+.station-card span,
+.live-info p,
+.live-info span,
+.location-card p,
+.location-card span,
+.share-card p,
+.share-card span,
+.map-card p,
+.map-card span,
+.login-form p,
+.login-form span,
+.login-form label,
+.register-form p,
+.register-form span,
+.register-form label,
+.welcome-card p,
+.welcome-card span,
+.stats-card p,
+.stats-card span,
+.activity-card p,
+.activity-card span {
+  color: #475569 !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+/* ---- TARGETED READABILITY FIXES ---- */
+.send-alert-container .header h1,
+.send-alert-container .header p,
+.contacts-header h1,
+.contacts-header p,
+.location-header h1,
+.location-header p {
+  color: #102a43 !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-shadow: none !important;
+}
+
+.quick-action-btn .action-text,
+.quick-action-btn .action-icon {
+  color: #ffffff !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.sos-quick-actions .action-button span,
+.sos-quick-actions .action-button svg {
+  color: #102a43 !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.sos-quick-actions .action-button:hover span,
+.sos-quick-actions .action-button:hover svg {
+  color: #ffffff !important;
+}
+
+.safety-tips,
+.safety-tips h2,
+.safety-tips p,
+.safety-tips span,
+.tips-list .tip,
+.tips-list .tip p,
+.tips .tip,
+.tips .tip p {
+  color: #102a43 !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-shadow: none !important;
+}
+
+.safety-tips .tip-icon,
+.safety-tips .tip-number {
+  color: #ffffff !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.ai-assistant-container,
+.ai-assistant-container .messages-container,
+.ai-assistant-container .quick-actions-section,
+.ai-assistant-container .input-section {
+  color: #102a43 !important;
+}
+
+.ai-assistant-container .ai-header h1,
+.ai-assistant-container .ai-header p {
+  color: #ffffff !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.ai-message .message-content,
+.quick-actions-section,
+.quick-action-item,
+.input-section,
+.input-wrapper {
+  background-color: #ffffff !important;
+}
+
+.ai-message .message-content p,
+.ai-message .message-time,
+.quick-actions-label,
+.quick-action-item,
+.quick-action-item span,
+.message-input,
+.message-input::placeholder {
+  color: #102a43 !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-shadow: none !important;
+}
+
+.user-message .message-content p,
+.user-message .message-time {
+  color: #ffffff !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.contact-actions,
+.action-btn {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.add-contact-form h2,
+.add-contact-form label,
+.add-contact-form input,
+.add-contact-form select {
+  color: #102a43 !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.alert-history,
+.alert-history h2,
+.history-list,
+.history-list p,
+.history-message,
+.history-meta {
+  color: #102a43 !important;
+  -webkit-text-fill-color: currentColor !important;
+}

@@ -1,0 +1,143 @@
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  background:
+    radial-gradient(circle at top right, rgba(15, 47, 70, 0.06), transparent 24%),
+    linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+}
+
+.register-wrapper {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border: 1px solid var(--border-gray);
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: var(--shadow-lg);
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.register-header h1 {
+  font-size: 2.2rem;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.register-header p {
+  color: var(--text-light);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--text-light);
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border-gray);
+  border-radius: 14px;
+  background: #fbfdfe;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+.password-criteria {
+  background: #f6fafb;
+  border: 1px solid var(--border-gray);
+  border-radius: 14px;
+  padding: 16px;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.password-criteria ul {
+  margin: 12px 0 0;
+  padding-left: 18px;
+}
+
+.password-criteria li {
+  margin-bottom: 8px;
+}
+
+.password-criteria li.valid {
+  font-weight: 700;
+  color: var(--primary-pink);
+}
+
+.error-message {
+  background: #ffe6e6;
+  color: #c62828;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border-left: 4px solid #f44336;
+}
+
+.register-button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.register-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.switch-auth {
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.switch-auth button {
+  background: transparent;
+  border: none;
+  color: var(--primary-purple);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 560px) {
+  .register-wrapper {
+    padding: 28px 20px;
+  }
+}

@@ -1,0 +1,142 @@
+/* Police Stations Page Styles */
+
+.police-stations-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-bottom: 120px;
+}
+
+.header {
+  background: var(--gradient-secondary);
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.header p {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.stations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.station-card {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-gray);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.station-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--primary-lavender);
+}
+
+.station-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.station-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+  text-align: left;
+}
+
+.rating {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--warning-yellow);
+}
+
+.address,
+.distance,
+.phone {
+  font-size: 13px;
+  color: var(--text-light);
+  margin: 6px 0;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.btn-call,
+.btn-navigate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.btn-call {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+.btn-call:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-navigate {
+  background: var(--light-lavender);
+  color: var(--text-dark);
+  border: 1px solid var(--primary-lavender);
+}
+
+.btn-navigate:hover {
+  background: var(--primary-lavender);
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .police-stations-container {
+    padding: 16px 12px;
+  }
+
+  .station-card {
+    padding: 12px;
+  }
+
+  .station-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}
