@@ -462,8 +462,8 @@ export const getAlerts = async () => {
   try {
     const userId = getCurrentUserId();
     const [safetyResponse, sosResponse] = await Promise.allSettled([
-      fetch(`http://localhost:5000/api/safety-events?userId=${userId}`),
-      fetch(`http://localhost:5000/api/sos/events?userId=${userId}`),
+      fetch(`https://women-safety-backend-9ozd.onrender.com/api/safety-events?userId=${userId}`),
+      fetch(`https://women-safety-backend-9ozd.onrender.com/api/sos/events?userId=${userId}`),
     ]);
 
     const safetyEvents =
@@ -505,7 +505,7 @@ export const sendSOS = async (location = {}) => {
   };
 
   try {
-    const response = await fetch('http://localhost:5000/api/sos/trigger', {
+    const response = await fetch('https://women-safety-backend-9ozd.onrender.com/api/sos/trigger', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
@@ -560,7 +560,7 @@ export const logSafetyEvent = async ({ message, feature = 'Custom Alert', severi
   };
 
   try {
-    const response = await fetch('http://localhost:5000/api/safety-events', {
+    const response = await fetch('https://women-safety-backend-9ozd.onrender.com/api/safety-events', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),

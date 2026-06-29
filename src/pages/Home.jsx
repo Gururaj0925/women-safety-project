@@ -78,7 +78,7 @@ const Home = () => {
 
     try {
       const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
-      const url = `http://localhost:5000${endpoint}`;
+      const url = `https://women-safety-backend-9ozd.onrender.com${endpoint}`;
       
       const payload = isLogin 
         ? { email: formData.email, password: formData.password }
