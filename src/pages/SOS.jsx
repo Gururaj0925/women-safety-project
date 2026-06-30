@@ -8,7 +8,8 @@ const SOS = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState(false);
   const [sent, setSent] = useState(false);
-
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  
   const triggerSOS = useCallback((reason = 'Manual SOS Button Pressed', source = 'manual') => {
     if (isActive || sent) {
       return;
@@ -18,12 +19,24 @@ const SOS = () => {
 
     navigator.geolocation.getCurrentPosition(
       async (position) => {
-        const location = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-          reason,
-          source,
-        };
+       
+
+const location = {
+  lat: position.coords.latitude,
+  lng: position.coords.longitude,
+  reason,
+  source,
+  message: `
+Emergency SOS Triggered
+
+User Name: ${user?.name || "Unknown"}
+Email: ${user?.email || "Unknown"}
+Reason: ${reason}
+Source: ${source}
+Location:
+https://maps.google.com/?q=${position.coords.latitude},${position.coords.longitude}
+`
+};
 
         try {
           await sendSOS(location);

@@ -18,8 +18,8 @@ import '../styles/pages/advancedSafety.css';
 
 const SOUND_THRESHOLD = 10;
 const SHAKE_WINDOW_MS = 1500;
-const SHAKE_REQUIRED_COUNT = 1;
-const DEFAULT_SHAKE_THRESHOLD = 8;
+const SHAKE_REQUIRED_COUNT = 3;
+const DEFAULT_SHAKE_THRESHOLD = 16;
 const EMERGENCY_KEYWORDS = [
   'help me',
   'help',
@@ -336,6 +336,10 @@ const AdvancedSafetyEnhanced = () => {
     }
   }, [triggerEmergencySOS]);
 
+  console.log("SHAKE DETECTED");
+console.log("Strength:", strength);
+console.log("Count:", shakeEventsRef.current.length);
+
   const handleShakeMotion = useCallback((event) => {
     const acceleration = event.accelerationIncludingGravity || event.acceleration;
 
@@ -370,7 +374,7 @@ const AdvancedSafetyEnhanced = () => {
     const now = Date.now();
     const movement = Math.abs(event.movementX || 0) + Math.abs(event.movementY || 0);
 
-    if (movement < 35) {
+    if (movement < 10) {
       return;
     }
 
