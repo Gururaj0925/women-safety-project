@@ -796,13 +796,7 @@ Location: ${locationLink}`;
 }
 
 
-//            if (!faceSosTriggeredRef.current) {
-//    faceSosTriggeredRef.current = true;
-//    console.log("Triggering face SOS...");
-//    triggerEmergencySOS('Face detected', 'face');
-// }
-//             return;
-          //}
+
 
           
 

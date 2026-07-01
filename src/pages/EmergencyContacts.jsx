@@ -51,12 +51,13 @@ const EmergencyContacts = () => {
       const updatedContacts = contacts.map((contact) =>
         contact.id === editingId
           ? {
-              ...contact,
-              name: newContact.name.trim(),
-              phone: newContact.phone.trim(),
-              role: newContact.role,
-              fcmToken: newContact.fcmToken.trim(),
-            }
+  ...contact,
+  name: newContact.name.trim(),
+  phone: newContact.phone.trim(),
+  email: newContact.email.trim(),
+  role: newContact.role,
+  fcmToken: newContact.fcmToken.trim(),
+}
           : contact
       );
       saveContacts(updatedContacts);
@@ -65,13 +66,14 @@ const EmergencyContacts = () => {
     }
 
     const contact = {
-      id: Date.now(),
-      name: newContact.name.trim(),
-      phone: newContact.phone.trim(),
-      role: newContact.role,
-      fcmToken: newContact.fcmToken.trim(),
-      avatar: '👤',
-    };
+  id: Date.now(),
+  name: newContact.name.trim(),
+  phone: newContact.phone.trim(),
+  email: newContact.email.trim(),
+  role: newContact.role,
+  fcmToken: newContact.fcmToken.trim(),
+  avatar: '👤',
+};
 
     saveContacts([...contacts, contact]);
     resetForm();
@@ -85,11 +87,13 @@ const EmergencyContacts = () => {
   const handleEditContact = (contact) => {
     setEditingId(contact.id);
     setNewContact({
-      name: contact.name,
-      phone: contact.phone,
-      role: contact.role || 'Secondary',
-      fcmToken: contact.fcmToken || contact.pushToken || '',
-    });
+  name: contact.name,
+ phone: contact.phone,
+  email: contact.email || '',
+  role: contact.role || 'Secondary',
+  fcmToken: contact.fcmToken || contact.pushToken || '',
+});
+
     setShowAddForm(true);
   };
 
@@ -264,7 +268,7 @@ const EmergencyContacts = () => {
   <Mail size={18} />
 </button>
 
-                  <MessageCircle size={18} />
+               
                 
                 <button
                   className="action-btn edit"
