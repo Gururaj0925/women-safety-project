@@ -191,41 +191,38 @@ Location: ${locationLink}`;
 }
       addAlert(message, 'emergency');
 
+
+
       try {
-        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const user = JSON.parse(localStorage.getItem("currentUser"));
 
-        console.log({
-  userId: currentUser?._id,
-  location: { lat, lng },
-  source,
-  reason,
-  message
-});
+  console.log("CURRENT USER:", user);
+  console.log("USER ID:", user?.id || user?._id);
 
-await sendSOS({
-  userId: currentUser?._id,
-  location: {
-    lat,
-    lng
-  },
-  source,
-  reason,
-  message,
-  contacts
-});
-        setVoiceSuccess(true);
-        setVoiceError('');
-        setVoiceTranscript(
-          transcript
-            ? `"${transcript}" recognized. SOS sent successfully!`
-            : 'SOS sent successfully!'
-        );
-      } catch (error) {
-        console.error('Voice SOS failed to send:', error);
-        setVoiceSuccess(false);
-        setVoiceError('SOS failed to send. Please try again.');
-      }
-    };
+  const payload = {
+    userId: user?.id || user?._id,
+    location: {
+      lat,
+      lng
+    },
+    source,
+    reason,
+    message,
+    contacts
+  };
+
+  console.log("SOS PAYLOAD:", payload);
+
+  await sendSOS(payload);
+
+  setVoiceSuccess(true);
+  setVoiceError('');
+}
+catch (error) {
+  console.error('Voice SOS failed to send:', error);
+}
+
+        
 
     if (!navigator.geolocation) {
       sendWithLocation(null);
