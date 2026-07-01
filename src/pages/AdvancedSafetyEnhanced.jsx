@@ -171,6 +171,7 @@ if (source === "face") {
   message = `⚠ Face Detection Alert!
 Reason: ${reason}
 Location: ${locationLink}`;
+addAlert('Face detected successfully!', 'success');
 }
 
 if (source === "voice") {
@@ -191,13 +192,27 @@ Location: ${locationLink}`;
       addAlert(message, 'emergency');
 
       try {
-        await sendSOS({
-          lat,
-          lng,
-          reason,
-          source,
-          message,
-        });
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+        console.log({
+  userId: currentUser?._id,
+  location: { lat, lng },
+  source,
+  reason,
+  message
+});
+
+await sendSOS({
+  userId: currentUser?._id,
+  location: {
+    lat,
+    lng
+  },
+  source,
+  reason,
+  message,
+  contacts
+});
         setVoiceSuccess(true);
         setVoiceError('');
         setVoiceTranscript(
@@ -770,25 +785,26 @@ Location: ${locationLink}`;
           const detectedCount = detections.length;
           setFaceCount(detectedCount);
 
-          if (detectedCount > 1) {
-            setFaceStatus('Multiple faces detected');
-            setNoFaceSeconds(0);
-            noFaceStartedAtRef.current = null;
+         if (detectedCount >= 1) {
+   setFaceStatus('Face detected');
+   addAlert('Face detected successfully!', 'success');
 
-            if (!faceSosTriggeredRef.current) {
-              faceSosTriggeredRef.current = true;
-              triggerEmergencySOS('Multiple faces detected by safety camera', 'face');
-            }
-            return;
-          }
+   if (!faceSosTriggeredRef.current) {
+      faceSosTriggeredRef.current = true;
+      triggerEmergencySOS('Face detected', 'face');
+   }
+   return;
+}
 
-          if (detectedCount === 1) {
-            setFaceStatus('Face Detected');
-            setNoFaceSeconds(0);
-            noFaceStartedAtRef.current = null;
-            faceSosTriggeredRef.current = false;
-            return;
-          }
+//            if (!faceSosTriggeredRef.current) {
+//    faceSosTriggeredRef.current = true;
+//    console.log("Triggering face SOS...");
+//    triggerEmergencySOS('Face detected', 'face');
+// }
+//             return;
+          //}
+
+          
 
           if (!noFaceStartedAtRef.current) {
             noFaceStartedAtRef.current = Date.now();
