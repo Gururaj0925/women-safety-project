@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Edit2, Trash2, Phone, MessageCircle, Bell } from 'lucide-react';
+// import { Plus, Edit2, Trash2, Phone, MessageCircle, Bell } from 'lucide-react';
+import { Plus, Edit2, Trash2, Phone, Mail, Bell } from 'lucide-react';
 import { emergencyContacts } from '../App';
 import { getBrowserFcmToken } from '../utils/firebaseMessaging';
 import '../styles/pages/emergencyContacts.css';
@@ -7,6 +8,7 @@ import '../styles/pages/emergencyContacts.css';
 const emptyContact = {
   name: '',
   phone: '',
+  email: '',
   role: 'Secondary',
   fcmToken: '',
 };
@@ -95,10 +97,18 @@ const EmergencyContacts = () => {
     window.location.href = `tel:${phone}`;
   };
 
-  const handleSmsContact = (contact) => {
-    const body = `Hi ${contact.name}, this is a safety check. Please contact me when you can.`;
-    window.location.href = `sms:${contact.phone}?body=${encodeURIComponent(body)}`;
-  };
+
+ const handleEmailContact = (contact) => {
+  const subject = "Safety Check";
+  const body = `Hi ${contact.name}, this is a safety check. Please contact me when you can.`;
+
+  if (!contact.email) {
+    alert("Email not available for this contact");
+    return;
+  }
+
+  window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+};
 
   const handleUseThisDeviceToken = async () => {
     setTokenStatus('Requesting notification permission...');
@@ -168,6 +178,18 @@ const EmergencyContacts = () => {
               required
             />
           </div>
+
+          <div className="form-group">
+  <label>Email</label>
+  <input
+    type="email"
+    placeholder="Enter email"
+    value={newContact.email}
+    onChange={(e) => setNewContact({ ...newContact, email: e.target.value })}
+  />
+</div>
+
+
           <div className="form-group">
             <label>Role</label>
             <select
@@ -234,13 +256,16 @@ const EmergencyContacts = () => {
                 >
                   <Phone size={18} />
                 </button>
-                <button
-                  className="action-btn sms"
-                  title="SMS"
-                  onClick={() => handleSmsContact(contact)}
-                >
+               <button
+  className="action-btn email"
+  title="Email"
+  onClick={() => handleEmailContact(contact)}
+>
+  <Mail size={18} />
+</button>
+
                   <MessageCircle size={18} />
-                </button>
+                
                 <button
                   className="action-btn edit"
                   title="Edit"
