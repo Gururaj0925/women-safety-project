@@ -9,7 +9,7 @@ const SOS = () => {
   const [isActive, setIsActive] = useState(false);
   const [sent, setSent] = useState(false);
   const user = JSON.parse(localStorage.getItem("currentUser"));
-  
+
   const triggerSOS = useCallback((reason = 'Manual SOS Button Pressed', source = 'manual') => {
     if (isActive || sent) {
       return;
@@ -37,6 +37,7 @@ Location:
 https://maps.google.com/?q=${position.coords.latitude},${position.coords.longitude}
 `
 };
+console.log("LOCATION DATA:", location);
 
         try {
           await sendSOS(location);

@@ -162,8 +162,32 @@ const AdvancedSafetyEnhanced = () => {
       const lat = coords?.latitude;
       const lng = coords?.longitude;
       const locationLink = lat && lng ? `https://maps.google.com/?q=${lat},${lng}` : 'Location unavailable';
-      const message = `\uD83D\uDEA8 Emergency! User may be in danger. Location: ${locationLink}`;
 
+      //const message = `\uD83D\uDEA8 Emergency! User may be in danger. Location: ${locationLink}`;
+
+      let message = `🚨 Emergency! User may be in danger. Location: ${locationLink}`;
+
+if (source === "face") {
+  message = `⚠ Face Detection Alert!
+Reason: ${reason}
+Location: ${locationLink}`;
+}
+
+if (source === "voice") {
+  message = `🎤 Voice Alert!
+Transcript: ${transcript}
+Location: ${locationLink}`;
+}
+
+if (source === "sound") {
+  message = `🔊 Loud Sound Detected!
+Location: ${locationLink}`;
+}
+
+if (source === "shake") {
+  message = `📱 Shake Alert Triggered!
+Location: ${locationLink}`;
+}
       addAlert(message, 'emergency');
 
       try {
@@ -313,6 +337,9 @@ const AdvancedSafetyEnhanced = () => {
 
   const handleShakeDetected = useCallback((strength = 0) => {
     const now = Date.now();
+      console.log("SHAKE DETECTED");
+      console.log("Strength:", strength);
+      console.log("Count:", shakeEventsRef.current.length);
 
     if (now - shakeCooldownRef.current < 1800) {
       return;
@@ -336,9 +363,7 @@ const AdvancedSafetyEnhanced = () => {
     }
   }, [triggerEmergencySOS]);
 
-  console.log("SHAKE DETECTED");
-console.log("Strength:", strength);
-console.log("Count:", shakeEventsRef.current.length);
+
 
   const handleShakeMotion = useCallback((event) => {
     const acceleration = event.accelerationIncludingGravity || event.acceleration;
