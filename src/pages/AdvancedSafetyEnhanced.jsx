@@ -155,86 +155,88 @@ const AdvancedSafetyEnhanced = () => {
     ].slice(0, 8));
   };
 
-  const triggerEmergencySOS = useCallback((reason, source = 'advanced-safety', transcript = '') => {
-    window.alert('\uD83D\uDEA8 Emergency Detected! Sending SOS...');
+  const triggerEmergencySOS = useCallback((reason, source = "advanced-safety", transcript = "") => {
+  window.alert("🚨 Emergency Detected! Sending SOS...");
 
-    const sendWithLocation = async (coords) => {
-      const lat = coords?.latitude;
-      const lng = coords?.longitude;
-      const locationLink = lat && lng ? `https://maps.google.com/?q=${lat},${lng}` : 'Location unavailable';
+  const sendWithLocation = async (coords) => {
+    try {
+      const lat = coords?.latitude || null;
+      const lng = coords?.longitude || null;
 
-      //const message = `\uD83D\uDEA8 Emergency! User may be in danger. Location: ${locationLink}`;
+      const locationLink =
+        lat && lng
+          ? `https://maps.google.com/?q=${lat},${lng}`
+          : "Location unavailable";
 
-      let message = `🚨 Emergency! User may be in danger. Location: ${locationLink}`;
+      let message = `🚨 Emergency! User may be in danger.\nLocation: ${locationLink}`;
 
-if (source === "face") {
-  message = `⚠ Face Detection Alert!
+      if (source === "face") {
+        message = `⚠ Face Detection Alert!
 Reason: ${reason}
 Location: ${locationLink}`;
-addAlert('Face detected successfully!', 'success');
-}
+      }
 
-if (source === "voice") {
-  message = `🎤 Voice Alert!
+      if (source === "voice") {
+        message = `🎤 Voice Alert!
 Transcript: ${transcript}
 Location: ${locationLink}`;
-}
+      }
 
-if (source === "sound") {
-  message = `🔊 Loud Sound Detected!
+      if (source === "sound") {
+        message = `🔊 Loud Sound Detected!
 Location: ${locationLink}`;
-}
+      }
 
-if (source === "shake") {
-  message = `📱 Shake Alert Triggered!
+      if (source === "shake") {
+        message = `📱 Shake Alert Triggered!
 Location: ${locationLink}`;
-}
-      addAlert(message, 'emergency');
+      }
 
+      addAlert(message, "emergency");
 
+      const user = JSON.parse(localStorage.getItem("currentUser"));
+      console.log("CURRENT USER:", user);
 
-      try {
-  const user = JSON.parse(localStorage.getItem("currentUser"));
+      const payload = {
+        userId: user?._id || user?.id,
+        location: { lat, lng },
+        source,
+        reason,
+        message,
+        contacts
+      };
 
-  console.log("CURRENT USER:", user);
-  console.log("USER ID:", user?.id || user?._id);
+      console.log("SOS PAYLOAD:", payload);
 
-  const payload = {
-    userId: user?.id || user?._id,
-    location: {
-      lat,
-      lng
-    },
-    source,
-    reason,
-    message,
-    contacts
+      const response = await sendSOS(payload);
+      console.log("SOS RESPONSE:", response);
+
+      setVoiceSuccess(true);
+      setVoiceError("");
+    } catch (error) {
+      console.error("SOS failed:", error);
+    }
   };
 
-  console.log("SOS PAYLOAD:", payload);
+  if (!navigator.geolocation) {
+    sendWithLocation(null);
+    return;
+  }
 
-  await sendSOS(payload);
-
-  setVoiceSuccess(true);
-  setVoiceError('');
-}
-catch (error) {
-  console.error('Voice SOS failed to send:', error);
-}
-
-        
-
-    if (!navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(
+    (position) => sendWithLocation(position.coords),
+    (error) => {
+      console.log("Location error:", error);
       sendWithLocation(null);
-      return;
+    },
+    {
+      enableHighAccuracy: true,
+      timeout: 8000,
+      maximumAge: 0
     }
+  );
+}, [contacts]);
 
-    navigator.geolocation.getCurrentPosition(
-      (position) => sendWithLocation(position.coords),
-      () => sendWithLocation(null),
-      { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 }
-    );
-  }, []);
 
   const runButtonAction = (key, action) => {
     const now = Date.now();
@@ -782,16 +784,17 @@ catch (error) {
           const detectedCount = detections.length;
           setFaceCount(detectedCount);
 
-         if (detectedCount >= 1) {
-   setFaceStatus('Face detected');
-   addAlert('Face detected successfully!', 'success');
+        if (detectedCount >= 1) {
+  setFaceStatus('Face detected');
+  addAlert('Face detected successfully!', 'success');
 
-   if (!faceSosTriggeredRef.current) {
-      faceSosTriggeredRef.current = true;
-      triggerEmergencySOS('Face detected', 'face');
-   }
-   return;
+  if (!faceSosTriggeredRef.current) {
+    faceSosTriggeredRef.current = true;
+    triggerEmergencySOS('Face detected', 'face');
+  }
+  return;
 }
+
 
 //            if (!faceSosTriggeredRef.current) {
 //    faceSosTriggeredRef.current = true;
