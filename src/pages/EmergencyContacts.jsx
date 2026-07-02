@@ -307,16 +307,24 @@ const EmergencyContacts = () => {
           contacts.map((contact) => (
             <div key={contact.id} className={`contact-card ${getRoleColor(contact.role)}`}>
               <div className="contact-avatar">{contact.avatar}</div>
+              
               <div className="contact-details">
-                <h3>{contact.name}</h3>
-                <p className="phone">{contact.phone}</p>
-                <span className={`role-badge ${getRoleColor(contact.role)}`}>
-                  {contact.role}
-                </span>
-                {(contact.fcmToken || contact.pushToken) && (
-                  <span className="push-badge">Push enabled</span>
-                )}
-              </div>
+  <h3>{contact.name}</h3>
+  <p className="phone">{contact.phone}</p>
+
+  {contact.email && (
+    <p className="email">{contact.email}</p>
+  )}
+
+  <span className={`role-badge ${getRoleColor(contact.role)}`}>
+    {contact.role}
+  </span>
+
+  {(contact.fcmToken || contact.pushToken) && (
+    <span className="push-badge">Push enabled</span>
+  )}
+</div>
+
               <div className="contact-actions">
                 <button
                   className="action-btn call"
