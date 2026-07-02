@@ -10,6 +10,23 @@
   padding-bottom: 120px;
 }
 
+.email {
+  font-size: 14px;
+  color: #bbb;
+  margin-top: 4px;
+  word-break: break-all;
+}
+
+.action-btn.email {
+  background: #007bff;
+  color: white;
+}
+
+.action-btn.email:hover {
+  background: #0056b3;
+}
+
+
 /* Header */
 .contacts-header {
   background: var(--gradient-secondary);
