@@ -15,6 +15,8 @@ const emptyContact = {
 
 
 const EmergencyContacts = () => {
+  localStorage.removeItem("emergencyContacts")
+location.reload()
  const [contacts, setContacts] = useState([]);
   const [showAddForm, setShowAddForm] = useState(false);
   const [newContact, setNewContact] = useState(emptyContact);
