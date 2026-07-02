@@ -13,12 +13,20 @@ const emptyContact = {
   fcmToken: '',
 };
 
+
 const EmergencyContacts = () => {
-  const [contacts, setContacts] = useState([]);
+ const [contacts, setContacts] = useState([]);
   const [showAddForm, setShowAddForm] = useState(false);
   const [newContact, setNewContact] = useState(emptyContact);
   const [editingId, setEditingId] = useState(null);
   const [tokenStatus, setTokenStatus] = useState('');
+
+  const [showEmailForm, setShowEmailForm] = useState(false);
+  const [selectedContactId, setSelectedContactId] = useState(null);
+  const [emailForm, setEmailForm] = useState({
+    name: '',
+    email: ''
+  });
 
   useEffect(() => {
     const savedContacts = localStorage.getItem('emergencyContacts');
@@ -102,17 +110,15 @@ const EmergencyContacts = () => {
   };
 
 
- const handleEmailContact = (contact) => {
-  const subject = "Safety Check";
-  const body = `Hi ${contact.name}, this is a safety check. Please contact me when you can.`;
-
-  if (!contact.email) {
-    alert("Email not available for this contact");
-    return;
-  }
-
-  window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const openEmailForm = (contact) => {
+  setSelectedContactId(contact.id);
+  setEmailForm({
+    name: contact.name || '',
+    email: contact.email || ''
+  });
+  setShowEmailForm(true);
 };
+
 
   const handleUseThisDeviceToken = async () => {
     setTokenStatus('Requesting notification permission...');
@@ -127,6 +133,29 @@ const EmergencyContacts = () => {
     }
   };
 
+  const handleSaveEmail = () => {
+  if (!emailForm.name || !emailForm.email) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  const updatedContacts = contacts.map((contact) =>
+    contact.id === selectedContactId
+      ? {
+          ...contact,
+          name: emailForm.name,
+          email: emailForm.email
+        }
+      : contact
+  );
+
+  saveContacts(updatedContacts);
+  setShowEmailForm(false);
+  alert("Email saved successfully");
+};
+
+
+
   const getRoleColor = (role) => {
     switch (role) {
       case 'Primary':
@@ -140,8 +169,41 @@ const EmergencyContacts = () => {
     }
   };
 
+
+  
+
   return (
     <div className="emergency-contacts-container">
+
+      {showEmailForm && (
+  <div className="email-modal">
+    <div className="email-form-box">
+      <h3>Add Email Details</h3>
+
+      <input
+        type="text"
+        placeholder="Enter name"
+        value={emailForm.name}
+        onChange={(e) =>
+          setEmailForm({ ...emailForm, name: e.target.value })
+        }
+      />
+
+      <input
+        type="email"
+        placeholder="Enter email"
+        value={emailForm.email}
+        onChange={(e) =>
+          setEmailForm({ ...emailForm, email: e.target.value })
+        }
+      />
+
+      <button onClick={handleSaveEmail}>Save</button>
+      <button onClick={() => setShowEmailForm(false)}>Cancel</button>
+    </div>
+  </div>
+)}
+
       <div className="contacts-header">
         <h1>Emergency Contacts</h1>
         <button
@@ -263,7 +325,7 @@ const EmergencyContacts = () => {
                <button
   className="action-btn email"
   title="Email"
-  onClick={() => handleEmailContact(contact)}
+  onClick={() => openEmailForm(contact)}
 >
   <Mail size={18} />
 </button>
